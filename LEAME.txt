@@ -1,7 +1,5 @@
 Buen día.
 
-Mi nombre es Anderson Omar Quintero Morales.
-
 El proyecto se hizo con Angular 6, Maven, Spring Boot, JAP, Hibernate, BD(Postgresql 11), Tomcat Server(IntellijIdea)
 
 En el repositorio encontraremos 2 carpetas: scrips y proyecto
