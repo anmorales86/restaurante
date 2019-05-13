@@ -1,0 +1,32 @@
+Buen día.
+
+Mi nombre es Anderson Omar Quintero Morales.
+
+El proyecto se hizo con Angular 6, Maven, Spring Boot, JAP, Hibernate, BD(Postgresql 11), Tomcat Server(IntellijIdea)
+
+En el repositorio encontraremos 2 carpetas: scrips y proyecto
+
+Por favor siga las siguientes instrucciones:
+
+1. Configuracion de la BD (restaurante\restaurante-starter\src\main\resources\application.properties)
+	a. user: postgres
+	b. clave: admin
+	c. nombreBD: restaurantBD
+	d. port: 5433
+
+2. Ejecutar los scripts que se encuentran en la carpeta "scripts", con el sgte orden:
+	a. camarero.sql
+	b. cliente.sql
+	c. cocinero.sql
+	d. mesa.sql
+	e. factura.sql
+	f. detallefactura.sql
+	g. factura_idfactura_seq.sql
+
+3. El proyecto esta dentro de la carpeta "restaurante", lo realice con el IDE "IntellijIdea". 
+
+
+
+
+
+

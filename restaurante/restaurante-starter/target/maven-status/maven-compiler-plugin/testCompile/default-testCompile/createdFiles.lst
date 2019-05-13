@@ -1,0 +1,7 @@
+com\group\restaurante\starter\test\TableRepositoryTest.class
+com\group\restaurante\starter\test\WaiterRepositoryTest.class
+com\group\restaurante\starter\test\ChefRepositoryTest.class
+com\group\restaurante\starter\test\ClientRepositoryTest.class
+com\group\restaurante\starter\test\InvoiceRepositoryTest.class
+com\group\restaurante\starter\test\ReportWaiterRepositoryTest.class
+com\group\restaurante\starter\test\ReportClientRepositoryTest.class

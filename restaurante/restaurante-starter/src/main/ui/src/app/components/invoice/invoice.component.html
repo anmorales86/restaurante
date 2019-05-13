@@ -1,0 +1,191 @@
+<section  class="obligacion-info acc-info">
+  <div class="page-card">    
+      <div class="acc-info acc-info-padding">
+          
+          <div class="row">                        
+                  <div class="col-md-12 col-12" style="text-align: center !important;" >
+                      <div class="form-group">
+                              <label style="font-size: 30px !important;">FACTURA</label>
+                              
+                      </div>
+                     
+                  </div>                                 
+          </div>
+          <br /><br />
+          <div class="row">                        
+            <div class="col-md-3 col-sm-4 col-12" >
+                <div class="form-group">
+                    <label>Cliente</label><span>*</span>
+                    <select class="form-control" [(ngModel)]="client" >
+                      <option value="">Seleccione</option>
+                      <option [value]="item.idClient" *ngFor="let item of clientDtoList">{{ item.name }}  {{ item.lastName1 }}  {{ item.lastName2 }}</option>   
+                      
+                    </select>
+                </div>
+               
+            </div>    
+            <div class="col-md-3 col-sm-4 col-12" >
+              <div class="form-group">
+                  <label>Chef</label><span>*</span>
+                  <select class="form-control" [(ngModel)]="chef" >
+                    <option value="">Seleccione</option>
+                    <option [value]="item.idChef" *ngFor="let item of chefDtoList">{{ item.name }}  {{ item.lastName1 }}  {{ item.lastName2 }}</option>   
+                    
+                  </select>
+              </div>
+             
+          </div>  
+          
+          <div class="col-md-3 col-sm-4 col-12" >
+              <div class="form-group">
+                  <label>Camarero</label><span>*</span>
+                  <select class="form-control" [(ngModel)]="waiter" >
+                    <option value="">Seleccione</option>
+                    <option [value]="item.idWaiter" *ngFor="let item of waiterDtoList">{{ item.name }}  {{ item.lastName1 }}  {{ item.lastName2 }}</option>   
+                    
+                  </select>
+              </div>
+            
+          </div>
+
+          <div class="col-md-3 col-sm-4 col-12" >
+              <div class="form-group">
+                  <label>Número de Personas</label><span>*</span>
+                  <select class="form-control" (change)="personNumberSelected();" [(ngModel)]="personNumbers" >
+                    <option value="">Seleccione</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    
+                    
+                  </select>
+              </div>
+            
+          </div>
+
+
+          <div class="col-md-3 col-sm-4 col-12" *ngIf="personNumbers !== ''" >
+              <div class="form-group">
+                  <label>Mesa</label><span>*</span>
+                  <select class="form-control" [(ngModel)]="tableRest" >
+                    <option value="">Seleccione</option>
+                    <option [value]="item.idTable" *ngFor="let item of tableRestDtoShowList">{{ item.location }}</option>   
+                    
+                  </select>
+              </div>
+            
+          </div>
+          </div>
+          <br />
+          <div class="row" style="text-align: right;">
+            
+          
+              <button id="addDetail" type="button" href="javascript:void(0)" hidden="hidden" data-toggle="modal"  data-target="#add-invoice-detail-modal">Adicionar Pedido</button>
+            
+              <input type="button" [disabled]="(client === '' || chef === '' || waiter === '' || personNumbers === '' || tableRest === '') " 
+              (click)="invoiceDetail();"  class="btn btn-primary pull-right" value="Adic. Detalle Pedido" /> 
+            
+          
+              <br />
+
+
+        </div>
+        <br /><br />
+          <div class="row">                        
+              <div class="col-md-12 col-12" style="text-align: center !important;" >
+                  <div class="mat-elevation-z8">
+                      <table mat-table [dataSource]="dataSource" style="width: 100%;" >
+
+                        <!--- Note that these columns can be defined in any order.
+                              The actual rendered columns are set as a property on the row definition" -->
+                      
+                        
+                      
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="Plate">
+                          <th mat-header-cell *matHeaderCellDef> Plato </th>
+                          <td mat-cell *matCellDef="let element"> {{element.plate}} </td>
+                        </ng-container>
+                      
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="Value">
+                          <th mat-header-cell *matHeaderCellDef> Importe </th>
+                          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+                        </ng-container>
+                      
+                        
+                      
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                      </table>
+                      <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+                  </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-3 col-sm-4 col-12" >
+                  <div class="form-group">
+                      <label>Valor Total</label>
+                      <input class="form-control" readonly type="text" value=" {{ valueTotal }}" >
+                      
+                      
+                  </div>
+                
+              </div>
+          </div>
+          <br />
+          <div class="row">
+              <div class="col-md-3 col-sm-4 col-12" >
+                    <div class="form-group">
+                            <input type="button" [disabled]="(client === '' || chef === '' || waiter === '' || personNumbers === '' || tableRest === '' ||
+                            invoiceDetailDtoList.length == 0) " 
+                            (click)="saveInvoice();"  class="btn btn-primary pull-right" value="Guardar Factura" /> 
+                        
+                        
+                    </div>
+                  
+                </div>
+
+          </div>
+          
+      </div>         
+  </div>
+</section>
+
+
+
+<div class="modal fade experian-modal text-center" id="add-invoice-detail-modal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-body">
+                <h3>Adicionar Pedido</h3>                    
+                <div class="pModal2">
+                    <div class="form-group">
+                        <label class="col-sm-4">Plato</label>
+                        <input type="text" class="form-control" [(ngModel)]="plate" >                     
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4">Importe</label>
+                        <input type="text" [min]="0" [max]="9"  class="form-control" [(ngModel)]="value" >                     
+                    </div>
+                  
+                    
+              
+                    <div class="modal-btn">
+                        <input type="button" (click)="closeModal()" class="btn btn-secondary sizeButton" value="Cerrar" />                    
+                        <input type="button" [disabled]="(plate.trim() === '' || value == 0) " 
+                        (click)="addPlateDetail();"  class="btn btn-primary pull-right sizeButton" value="Agregar" /> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  

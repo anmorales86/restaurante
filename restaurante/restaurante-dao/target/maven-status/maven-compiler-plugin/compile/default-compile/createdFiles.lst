@@ -1,0 +1,15 @@
+com\group\restaurante\dao\repository\ReportWaiterRepositoryImpl.class
+com\group\restaurante\dao\util\Util.class
+com\group\restaurante\dao\repository\ClientRepository.class
+com\group\restaurante\dao\repository\ReportClientRepository.class
+com\group\restaurante\dao\repository\ReportWaiterRepository.class
+com\group\restaurante\dao\repository\ClientRepositoryRepositoryImpl.class
+com\group\restaurante\dao\repository\WaiterRepositoryImpl.class
+com\group\restaurante\dao\repository\InvoiceRepositoryImpl.class
+com\group\restaurante\dao\repository\ChefRepository.class
+com\group\restaurante\dao\repository\ReportClientRepositoryImpl.class
+com\group\restaurante\dao\repository\WaiterRepository.class
+com\group\restaurante\dao\repository\ChefRepositoryImpl.class
+com\group\restaurante\dao\repository\InvoiceRepository.class
+com\group\restaurante\dao\repository\TableRepository.class
+com\group\restaurante\dao\repository\TableRepositoryImpl.class

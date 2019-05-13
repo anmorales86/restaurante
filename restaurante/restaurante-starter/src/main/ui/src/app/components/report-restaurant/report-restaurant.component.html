@@ -1,0 +1,94 @@
+<section  class="obligacion-info acc-info">
+    <div class="page-card">    
+        <div class="acc-info acc-info-padding" style="padding: 20px !important;margin-left: 10px !important;">
+            
+            <div class="row">                        
+                    <div class="col-md-12 col-12" style="text-align: center !important;" >
+                        <div class="form-group">
+                                <label style="font-size: 30px !important;">REPORTES</label>
+                                
+                        </div>
+                       
+                    </div>                                 
+            </div>
+            <br /><br />
+            <div class="row">                        
+                <div class="col-md-3 col-sm-4 col-12" >
+                    <div class="form-group">
+                        <label>Cliente</label><span>*</span>
+                        <select class="form-control" (change)="updateReport();" [(ngModel)]="reportGeneral" >
+                          <option value="">Seleccione</option>
+                          <option value="1">Reporte Camareros</option>
+                          <option value="2">Reporte Clientes</option>
+                          
+                          
+                        </select>
+                    </div>
+                   
+                </div>  
+            </div>
+            <br />
+            <div class="row" style="text-align: right;">
+            
+                <input type="button" [disabled]="(reportGeneral === '') " 
+                (click)="getReport();"  class="btn btn-primary pull-right" value="Consultar" /> 
+              
+            </div>
+            <br /><br />
+            <div class="row">                        
+                <div class="col-md-12 col-12" style="text-align: center !important;" >
+                    <div class="mat-elevation-z8">
+                        <table mat-table *ngIf="reportGeneral === '1'" [dataSource]="dataSource" style="width: 100%;" >
+
+                         
+                        
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="Name">
+                            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                          </ng-container>
+                        
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="Date">
+                            <th mat-header-cell *matHeaderCellDef> Fecha </th>
+                            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                          </ng-container>
+                        
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="Total">
+                            <th mat-header-cell *matHeaderCellDef> Total </th>
+                            <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                          </ng-container>
+
+                        
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+
+
+                        <table mat-table *ngIf="reportGeneral === '2'" [dataSource]="dataSource" style="width: 100%;" >
+
+                         
+                        
+                            <!-- Name Column -->
+                            <ng-container matColumnDef="Name">
+                              <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+                          
+                           
+  
+                          
+                            <tr mat-header-row *matHeaderRowDef="displayedClienteColumns"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedClienteColumns;"></tr>
+                          </table>
+
+                        <mat-paginator [pageSize]="10" showFirstLastButtons></mat-paginator>
+                    </div>
+                </div>
+            </div>
+            
+        </div>         
+    </div>
+  </section>
+  

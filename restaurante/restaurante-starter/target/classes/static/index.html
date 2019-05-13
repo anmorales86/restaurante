@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ResturanteWeb</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
+</head>
+<body>
+    <app-root></app-root>
+    <div class="overlay"></div>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/dataTables.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.jqueryui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/select/1.3.0/js/dataTables.select.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+    <script src="./assets/js/jquery-3.3.1.slim.min.js" ></script>
+    <script src="./assets/js/util.js" ></script>
+
+<script type="text/javascript" src="runtime.js"></script><script type="text/javascript" src="polyfills.js"></script><script type="text/javascript" src="styles.js"></script><script type="text/javascript" src="scripts.js"></script><script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="main.js"></script></body>
+<script type="text/javascript">
+  $(document).ready(function ()
+    {
+
+
+
+      history.pushState(null, null, location.href);
+          window.onpopstate = function () {
+              history.go(1);
+          };
+
+          $('#sidebarCollapse').on('click', function ()
+          {
+              $('#sidemenu').toggleClass('active');
+          });
+
+          $('.sidemenu li a').on('click', function ()
+          {
+              $(".overlay").trigger("click");
+          });
+
+          $(".sidemenu li").click(function()
+          {
+              $(".sidemenu li").removeClass("activarLi");
+              $(this).addClass("activarLi");
+          });
+
+
+          $('.hamburger').click(function()
+          {
+              $(".sidemenu").toggleClass('active','');
+                  $(".overlay").toggle();
+          });
+
+          $(".overlay").click(function(){
+              $(".sidemenu").removeClass('active');
+              $("#sidemenu").toggleClass('active','');
+              $('.liCuentaPor').hide();
+              $(this).hide();
+          });
+
+          $('.liCuentaPor ul li').on('click', function ()
+          {
+              $(".overlay").trigger("click");
+          });
+
+
+          $(".tab-container li").click(function()
+          {
+              $(".tab-container li").removeClass('active');
+              $(this).addClass('active');
+              $('.action').hide();
+          });
+
+
+
+
+    });
+</script>
+</html>
