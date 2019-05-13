@@ -23,6 +23,8 @@ Por favor siga las siguientes instrucciones:
 
 3. El proyecto esta dentro de la carpeta "restaurante", lo realice con el IDE "IntellijIdea". 
 
+4. El war cuando se "clean/install" desde Intellijidea se genera en la sgte ruta "restaurante\restaurante-starter\target\RestauranteMiCocina.war"
+
 
 
 
